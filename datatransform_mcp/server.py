@@ -1,5 +1,5 @@
 """
-DataTransform MCP Server v1.0.0
+DataTransform MCP Server v1.1.0
 
 Exposes the DataTransform API as MCP tools — agents can convert between data formats,
 query data in natural language, filter/aggregate/sort/merge datasets, and profile data quality.
@@ -28,7 +28,7 @@ import httpx
 from mcp.server.fastmcp import FastMCP
 
 # ── Config ────────────────────────────────────────────────────────────────────
-API_BASE = os.environ.get("DATATRANSFORM_API_URL", "https://data-transfer-api.rebaselabs.online")
+API_BASE = os.environ.get("DATATRANSFORM_API_URL", "https://data-transform-api-v2.rebaselabs.online")
 API_KEY = os.environ.get("DATATRANSFORM_API_KEY", "")
 DEFAULT_TIMEOUT = 60.0
 
@@ -48,7 +48,7 @@ def _headers() -> dict[str, str]:
     if not API_KEY:
         raise ValueError(
             "DATATRANSFORM_API_KEY environment variable is not set. "
-            "Get a key at https://data-transfer-api.rebaselabs.online"
+            "Get a key at https://data-transform-api-v2.rebaselabs.online"
         )
     return {"X-API-Key": API_KEY, "Content-Type": "application/json"}
 
